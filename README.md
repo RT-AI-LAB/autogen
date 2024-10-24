@@ -16,12 +16,12 @@ Copyright (C) Rolustech. All rights reserved.
 
  * master/main will have the latest release branch
 
-# Steps to Setup the Deveolpment Environment
+# Steps to Setup the Development Environment
 
 ### **Prerequisites:** 
-- You need to have Docker and Composer installed on your machine before proceeding with the setup.
+- You'll need to have Docker and Composer installed on your machine before you go ahead with the setup.
 - User should be in the docker group.
-    - To check if the user is in the docker group or not, run the command ```groups $USER```, if not, then run ```usermod -aG docker $USER```. If docker is not in the listed groups, then run ```groupadd docker``` and add user now using above-mentioned commands.
+    - To check if the user is in the docker group, run the command ```groups $USER```, if not, then run ```usermod -aG docker $USER```. If docker is not in the listed groups, run ```groupadd docker``` and add the user using the above-mentioned commands.
 - Following directories must be there
     - volumes/app/
     - volumes/ollama_models/
@@ -32,10 +32,11 @@ Copyright (C) Rolustech. All rights reserved.
     git clone https://github.com/RT-AI-LAB/autogen.git
     cd autogen
     git checkout master
+    cd docker
     docker compose up -d
     ```
 
-* **Step 2:** once dockers are up and running run 
+* **Step 2:** Once dockers are up and running run 
     ```sh
     docker exec -it ollama ollama run llama3
     ```
