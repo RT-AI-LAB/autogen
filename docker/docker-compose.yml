@@ -1,0 +1,27 @@
+services:
+  autogen:
+    build:
+      context: .
+      dockerfile: Autogen.Dockerfile
+    ports:
+      - "8000:8000"
+    container_name: autogen
+    privileged: true
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    volumes:
+      - ../volumes/app:/app
+    stdin_open: true
+    tty: true
+    depends_on:
+      - ollama
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11435:11434"
+    volumes:
+      - ../volumes/ollama_models:/root/.ollama
+    privileged: true
+    restart: unless-stopped
